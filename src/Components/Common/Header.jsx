@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { handleLogout } from "../Authentication/Login";
+
+
 const Header = ({ user }) => {
   console.log('header data like', user)
   return (
@@ -32,11 +35,16 @@ const Header = ({ user }) => {
       </ul>
     </div>
     <div className="navbar-end">
-      <a className="btn"> <Link to='/login'>Login</Link></a>
-    </div>
-    <div className="navbar-end">
+  {user ? (
+    <button className="btn" onClick={handleLogout}>Logout</button>
+  ) : (
+    <>
+      <a className="btn"><Link to="/login">Login</Link></a>
       <a className="btn">Register</a>
-    </div>
+    </>
+  )}
+</div>
+
   </div>
   )
 }

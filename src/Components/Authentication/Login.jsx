@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 
 // Get Auth instance
 const auth = getAuth(app);
-export { auth };
+// export { auth };
 
 const handleLogout = () => {
   signOut(auth)
@@ -29,7 +29,7 @@ const handleLogout = () => {
     });
 };
 
-
+export { auth,handleLogout  };
 
 
 function SignUpWithEmail() {

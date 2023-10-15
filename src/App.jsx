@@ -49,8 +49,6 @@ export default function App() {
         <Route path="register" element={<Register />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/events" element={<EventList />} />
-        {/* <Route path="/event/:eventId" element={<EventDetails events={events} />} /> */}
-        {/* <PrivateRoute path="/event/:eventId" element={<EventDetails events={events} />} /> */}
         <Route path="/event/:eventId" element={<PrivateRoute element={<EventDetails events={events} />} />} />
       </Routes>
       <Footer />
