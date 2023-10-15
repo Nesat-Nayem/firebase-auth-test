@@ -28,16 +28,30 @@ import Register from "./Components/Authentication/Register";
 import Footer from "./Components/Common/Footer";
 import Header from "./Components/Common/Header";
 import Home from './Components/Home/Home';
+import AboutUs from './Components/AboutUs/AboutUs';
+import EventDetails from './Components/EventDetails/EventDetails';
+import EventList from './Components/EventList/EventList';
+// import { events } from './data'; // Import your event data
+import { events } from '../src/data'; // Import your event data
+
+import { useAuthState } from 'react-firebase-hooks/auth'; // Import useAuthState
+import { auth } from '../src/Components/Authentication/Login'; 
+import PrivateRoute from './Privateroute/PrivateRoute';
 
 export default function App() {
+  const [user] = useAuthState(auth); 
   return (
     <Router>
-      <Header />
+      <Header user={user} />
       <Routes>
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        {/* Add more routes as needed */}
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/events" element={<EventList />} />
+        {/* <Route path="/event/:eventId" element={<EventDetails events={events} />} /> */}
+        {/* <PrivateRoute path="/event/:eventId" element={<EventDetails events={events} />} /> */}
+        <Route path="/event/:eventId" element={<PrivateRoute element={<EventDetails events={events} />} />} />
       </Routes>
       <Footer />
     </Router>
