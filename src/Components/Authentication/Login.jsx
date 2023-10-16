@@ -69,39 +69,42 @@ function SignUpWithEmail() {
   };
 
   return (
-    <div style={{ border: "solid black" }}>
-      <h1>Sign Up with Email</h1>
-      <label>
-        Name
-        <input
-          type="text"
-          onChange={(e) => {
-            setCredentials({ ...credentials, displayName: e.target.value });
-          }}
-        />
-      </label>
-      <br />
-      <label>
-        Email
-        <input
-          type="email"
-          onChange={(e) => {
-            setCredentials({ ...credentials, email: e.target.value });
-          }}
-        />
-      </label>
-      <br />
-      <label>
-        Password
-        <input
-          type="password"
-          onChange={(e) => {
-            setCredentials({ ...credentials, password: e.target.value });
-          }}
-        />
-      </label>
-      <button onClick={signUpWithEmail}>Sign Up</button>
+    <div className="border border-black p-8 rounded-lg w-1/4 mx-auto my-4 shadow-md">
+    <h1 className="text-xl font-bold mb-4">Please Sing Up!</h1>
+    <div className="mb-4">
+      <label className="block text-sm font-medium mb-2">Name</label>
+      <input
+        type="text"
+        onChange={(e) => {
+          setCredentials({ ...credentials, displayName: e.target.value });
+        }}
+        className="p-2 border border-gray-300 rounded w-full"
+      />
     </div>
+    <div className="mb-4">
+      <label className="block text-sm font-medium mb-2">Email</label>
+      <input
+        type="email"
+        onChange={(e) => {
+          setCredentials({ ...credentials, email: e.target.value });
+        }}
+        className="p-2 border border-gray-300 rounded w-full"
+      />
+    </div>
+    <div className="mb-4">
+      <label className="block text-sm font-medium mb-2">Password</label>
+      <input
+        type="password"
+        onChange={(e) => {
+          setCredentials({ ...credentials, password: e.target.value });
+        }}
+        className="p-2 border border-gray-300 rounded w-full"
+      />
+    </div>
+    <button onClick={signUpWithEmail} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      Sign Up
+    </button>
+  </div>
   );
 }
 
@@ -130,28 +133,31 @@ function LoginWithEmail() {
   };
 
   return (
-    <div style={{ border: "solid black" }}>
-      <h1>Login With Email</h1>
-      <label>
-        Email
+    <div className="border border-black p-8 rounded-lg w-1/4 mx-auto my-4 shadow-md">
+      <h1 className="text-xl font-bold mb-4">Please Sing In!</h1>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2">Email</label>
         <input
           type="email"
           onChange={(e) => {
             setCredentials({ ...credentials, email: e.target.value });
           }}
+          className="p-2 border border-gray-300 rounded w-full"
         />
-      </label>
-      <br />
-      <label>
-        Password
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2">Password</label>
         <input
           type="password"
           onChange={(e) => {
             setCredentials({ ...credentials, password: e.target.value });
           }}
+          className="p-2 border border-gray-300 rounded w-full"
         />
-      </label>
-      <button onClick={loginWithEmail}>Login</button>
+      </div>
+      <button onClick={loginWithEmail} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Login
+      </button>
     </div>
   );
 }
@@ -187,12 +193,12 @@ export default function Auth() {
           justifyContent: "center"
         }}
       >
-        <button onClick={handleLogout}>Logout</button>
+       
         <SignUpWithEmail />
         <LoginWithEmail />
       </div>
 
-      <DashBoard />
+      {/* <DashBoard /> */}
     </div>
   );
 }

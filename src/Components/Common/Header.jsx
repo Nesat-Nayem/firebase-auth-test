@@ -73,7 +73,7 @@ const Header = ({ user }) => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-        <li><a className=''><Link to='/about-us'> About Us </Link></a></li>
+        <li><a className='font-bold'><Link to='/about-us'> About Us </Link></a></li>
           {user && (
             <div className='mt-2 font-bold'>
               Welcome, {user?.displayName}! {/* Display the user's name */}
@@ -84,12 +84,13 @@ const Header = ({ user }) => {
         </ul>
       </div>
       <div className="navbar-end ">
+        
         {user ? (
           <button className="btn" onClick={handleLogout}>Logout</button>
         ) : (
           <>
             <a className="mr-4"><Link to="/login">Login</Link></a>
-            <a className="">Register</a>
+            <a className=""><Link to="/login">Register</Link></a>
           </>
         )}
       </div>
