@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getAuth, signOut, createUserWithEmailAndPassword,updateProfile, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signOut, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { initializeApp } from "firebase/app";
 
@@ -29,7 +29,7 @@ const handleLogout = () => {
     });
 };
 
-export { auth,handleLogout  };
+export { auth, handleLogout };
 
 
 function SignUpWithEmail() {
@@ -187,7 +187,7 @@ export default function Auth() {
           justifyContent: "center"
         }}
       >
-          <button onClick={handleLogout}>Logout</button>
+        <button onClick={handleLogout}>Logout</button>
         <SignUpWithEmail />
         <LoginWithEmail />
       </div>
